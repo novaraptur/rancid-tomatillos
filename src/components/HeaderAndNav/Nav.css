@@ -1,0 +1,19 @@
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-button {
+  background-color: #151515;
+  border: 2px solid #ff91ec;
+  border-radius: 5px;
+  color: #ff91ec;
+  padding: 1%;
+  width: 15%;
+}
+
+.nav-button:hover {
+  background-color: #ff91ec;
+  color: #ffffff;
+}

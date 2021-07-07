@@ -1,15 +1,13 @@
 
 header {
   background-color: #151515;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 2%;
 }
 
 h1 {
   color: #ADD481;
 }
 
-.logo {
+.logo-image {
   max-width: 50px;
 }
