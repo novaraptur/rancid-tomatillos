@@ -1,0 +1,15 @@
+
+header {
+  background-color: #151515;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+h1 {
+  color: #ADD481;
+}
+
+.logo {
+  max-width: 50px;
+}
