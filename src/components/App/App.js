@@ -16,12 +16,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <main>
+        {
         <Header />
-        <h2>THIS DOESN'T WORK UNLESS I HAVE ANOTHER ELEMENT HERE</h2>
-      </div>
-        // <FeatMovie movies={this.state.movieData} />
-        // <Movies movies={this.state.movieData}/>
+      /*<FeatMovie movies={movieData} /> */}
+        <Movies movies={this.state.movies}/>
+      </main>
     );
   }
 }
