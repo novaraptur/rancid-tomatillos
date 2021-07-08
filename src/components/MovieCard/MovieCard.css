@@ -1,3 +1,12 @@
 .movie-card {
   background-color: red;
+  margin: 1em;
+  padding: 05em;
+  border-radius: 5%;
+  border: 5px solid darkred;
+}
+
+.movie-card > img {
+  width: 80%;
+  height: auto;
 }
