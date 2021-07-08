@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../images/logo.svg';
 import './App.css';
 
 import Header from '../HeaderAndNav/Header';
@@ -15,13 +14,15 @@ class App extends Component {
     }
   }
 
-  return (
-    <main>
-      <Header />
-      <FeatMovie movies={movieData} />
-      <Movies movies={movieData}/>
-    </main>
-  );
+  render() {
+    return (
+      <main>
+        {/* <Header />
+        <FeatMovie movies={movieData} /> */}
+        <Movies movies={this.state.movies}/>
+      </main>
+    );
+  }
 }
 
 export default App;
