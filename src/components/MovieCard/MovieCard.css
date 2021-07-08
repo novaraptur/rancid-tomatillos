@@ -29,7 +29,3 @@
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
-
-.movie-card:hover {
-  background-color: aqua;
-}
