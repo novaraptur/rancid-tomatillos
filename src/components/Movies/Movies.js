@@ -1,23 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './Movies.css';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
-const Movies = ({ movies }) => {
-  const movieCards = movies.movies.map(movie => {
+class Movies extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedMovie: null
+    };
+  }
+
+  filterMovies = id => {
+    const { movies } = this.props;
+    const clickedMovie = movies.movies.find(movie => id === movie.id);
+    this.setState({ selectedMovie: clickedMovie });
+  };
+
+  //when you click home button state will be re-set to null
+
+  getMovieCards = () => {
+    const { movies } = this.props;
+    return movies.movies.map(movie => {
+      return (
+        <MovieCard
+          key={movie.id}
+          id={movie.id}
+          poster={movie.poster_path}
+          title={movie.title}
+          rating={movie.average_rating}
+          releaseDate={movie.release_date}
+          filterMovies={this.filterMovies}
+        />
+      );
+    });
+  };
+
+  render() {
     return (
-      <MovieCard
-        key={movie.id}
-        id={movie.id}
-        poster={movie.poster_path}
-        backdrop={movie.backdrop_path}
-        title={movie.title}
-        rating={movie.average_rating}
-        releaseDate={movie.release_date}
-      />
+      <section className='movies-container'>
+        {!this.state.selectedMovie ? (
+          this.getMovieCards()
+        ) : (
+          <MovieDetails selectedMovie={this.state.selectedMovie} />
+        )}
+      </section>
     );
-  });
-
-  return <section className='movies-container'>{movieCards}</section>;
-};
+  }
+}
 
 export default Movies;
