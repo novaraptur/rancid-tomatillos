@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './Movies.css';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 class Movies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedMovie: ''
+      selectedMovie: null
     };
   }
 
@@ -16,7 +17,9 @@ class Movies extends Component {
     this.setState({ selectedMovie: clickedMovie });
   };
 
-  movieCards = () => {
+  //when you click home button state will be re-set to null
+
+  getMovieCards = () => {
     const { movies } = this.props;
     return movies.movies.map(movie => {
       return (
@@ -24,7 +27,6 @@ class Movies extends Component {
           key={movie.id}
           id={movie.id}
           poster={movie.poster_path}
-          backdrop={movie.backdrop_path}
           title={movie.title}
           rating={movie.average_rating}
           releaseDate={movie.release_date}
@@ -35,7 +37,15 @@ class Movies extends Component {
   };
 
   render() {
-    return <section className='movies-container'>{this.movieCards()}</section>;
+    return (
+      <section className='movies-container'>
+        {!this.state.selectedMovie ? (
+          this.getMovieCards()
+        ) : (
+          <MovieDetails selectedMovie={this.state.selectedMovie} />
+        )}
+      </section>
+    );
   }
 }
 
