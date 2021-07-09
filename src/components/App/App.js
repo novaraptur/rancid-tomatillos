@@ -18,8 +18,8 @@ class App extends Component {
   render() {
     return (
       <main>
-        {/* <Header />
-        <FeatMovie movies={movieData} /> */}
+        <Header />
+        <FeatMovie movies={this.state.movies} movie={this.state.movie} />
         <Movies movies={this.state.movies} movie={this.state.movie} />
       </main>
     );
