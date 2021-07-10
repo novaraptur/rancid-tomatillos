@@ -7,18 +7,13 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 class Movies extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedMovie: null
-    };
   }
 
   filterMovies = id => {
     const { movies } = this.props;
     const clickedMovie = movies.movies.find(movie => id === movie.id);
-    this.setState({ selectedMovie: clickedMovie });
+    this.props.updateSelectedMovie(clickedMovie);
   };
-
-  //when you click browse button state will be re-set to null
 
   getMovieCards = () => {
     const { movies } = this.props;
@@ -40,7 +35,7 @@ class Movies extends Component {
   render() {
     return (
       <section>
-        {!this.state.selectedMovie ? (
+        {!this.props.selectedMovie ? (
           <div>
             <FeatMovie props={this.props}/>
             <div className='movies-container'>
@@ -48,7 +43,7 @@ class Movies extends Component {
             </div>
           </div>
         ) : (
-          <MovieDetails selectedMovie={this.state.selectedMovie} />
+          <MovieDetails selectedMovie={this.props.selectedMovie} />
         )}
       </section>
     );

@@ -2,7 +2,6 @@ import React from 'react';
 import './FeatMovie.css';
 
 const FeatMovie = ({props}) => {
-  console.log(props)
   const movieIndex = Math.floor(Math.random() * props.movies.movies.length);
   return (
     <section className="featured-movie-section">
