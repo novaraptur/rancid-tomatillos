@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import FeatMovie from '../FeatMovie/FeatMovie';
 import './Movies.css';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
@@ -17,7 +18,7 @@ class Movies extends Component {
     this.setState({ selectedMovie: clickedMovie });
   };
 
-  //when you click home button state will be re-set to null
+  //when you click browse button state will be re-set to null
 
   getMovieCards = () => {
     const { movies } = this.props;
@@ -40,7 +41,10 @@ class Movies extends Component {
     return (
       <section className='movies-container'>
         {!this.state.selectedMovie ? (
-          this.getMovieCards()
+          <div>
+            <FeatMovie props={this.props}/>
+            {this.getMovieCards()}
+          </div>
         ) : (
           <MovieDetails selectedMovie={this.state.selectedMovie} />
         )}

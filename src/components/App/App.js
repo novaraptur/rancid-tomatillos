@@ -19,7 +19,6 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <FeatMovie movies={this.state.movies} movie={this.state.movie} />
         <Movies movies={this.state.movies} movie={this.state.movie} />
       </main>
     );
@@ -27,3 +26,5 @@ class App extends Component {
 }
 
 export default App;
+
+//<FeatMovie movies={this.state.movies} movie={this.state.movie} />
