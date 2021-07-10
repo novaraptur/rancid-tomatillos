@@ -8,6 +8,13 @@ h1 {
   color: #ADD481;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
 .logo-image {
-  max-width: 50px;
+  padding: 1%;
+  max-width: 40px;
+  transform: rotate(30deg);
 }
