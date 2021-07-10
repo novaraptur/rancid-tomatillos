@@ -11,13 +11,13 @@ class Movies extends Component {
 
   filterMovies = id => {
     const { movies } = this.props;
-    const clickedMovie = movies.movies.find(movie => id === movie.id);
+    const clickedMovie = movies.find(movie => id === movie.id);
     this.props.updateSelectedMovie(clickedMovie);
   };
 
   getMovieCards = () => {
     const { movies } = this.props;
-    return movies.movies.map(movie => {
+    return movies.map(movie => {
       return (
         <MovieCard
           key={movie.id}
@@ -37,10 +37,8 @@ class Movies extends Component {
       <section>
         {!this.props.selectedMovie ? (
           <div>
-            <FeatMovie props={this.props}/>
-            <div className='movies-container'>
-              {this.getMovieCards()}
-            </div>
+            <FeatMovie props={this.props} />
+            <div className='movies-container'>{this.getMovieCards()}</div>
           </div>
         ) : (
           <MovieDetails selectedMovie={this.props.selectedMovie} />
