@@ -39,11 +39,13 @@ class Movies extends Component {
 
   render() {
     return (
-      <section className='movies-container'>
+      <section>
         {!this.state.selectedMovie ? (
           <div>
             <FeatMovie props={this.props}/>
-            {this.getMovieCards()}
+            <div className='movies-container'>
+              {this.getMovieCards()}
+            </div>
           </div>
         ) : (
           <MovieDetails selectedMovie={this.state.selectedMovie} />
