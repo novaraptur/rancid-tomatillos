@@ -11,9 +11,13 @@ class FeatMovie extends Component {
   }
 
   render() {
+    const movieIndex = this.generateMovie();
     return (
       <section className="featured-movie-section">
-        <img className="featured-movie-img" src={this.props.movies.movies[this.generateMovie()].backdrop_path} />
+        <img className="featured-movie-img" src={this.props.movies.movies[movieIndex].backdrop_path} alt={this.props.movies.movies[movieIndex].title + ' preview image.'}/>
+        <div className='featured-title'>
+          <h2>{this.props.movies.movies[movieIndex].title}</h2>
+        </div>
       </section>
     )
   }

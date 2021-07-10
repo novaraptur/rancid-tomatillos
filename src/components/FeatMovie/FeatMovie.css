@@ -1,7 +1,26 @@
-.featured-movie-img {
-  max-width: 100%;
+.featured-movie-section {
+  position: relative;
 }
 
-.featured-movie-img:hover {
-  opacity: 75%;
+.featured-movie-img {
+  width: 100%;
+}
+
+.featured-title {
+  background-color: rgb(34, 34, 34);
+  color: #ffffff;
+  height: 100%;
+  opacity: 60%;
+  padding: 2%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+}
+
+.featured-title h2 {
+  border-bottom: 3px solid #ffffff;
+  font-size: 2em;
+  opacity: 100%;
+  padding: 10px;
 }

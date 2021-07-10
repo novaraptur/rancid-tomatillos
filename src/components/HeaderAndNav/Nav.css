@@ -1,7 +1,14 @@
 
 nav {
+  background-color: rgb(34, 34, 34);
   display: flex;
   justify-content: space-between;
+  padding: 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 96%;
+  z-index: 1;
 }
 
 .nav-button {
