@@ -10,6 +10,8 @@ const MovieCard = props => {
   function handleClick(event) {
     event.preventDefault();
     const target = parseInt(event.target.closest('button').id);
+    // instead of filterMovies
+    // just give the target(id) to something in App to make a fetch request
     filterMovies(target);
   }
 
