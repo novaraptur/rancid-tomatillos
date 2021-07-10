@@ -22,7 +22,7 @@ class App extends Component {
 
   navigate = () => {
     if (!this.state.selectedMovie) {
-      console.log("HI");
+      console.log("Scroll down to movie cards");
     } else {
       this.updateSelectedMovie(null);
     }
