@@ -1,0 +1,20 @@
+
+header {
+  background-color: rgb(34, 34, 34);
+  padding: 8% 2% 2%;
+}
+
+h1 {
+  color: #ADD481;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-image {
+  padding: 1%;
+  max-width: 40px;
+  transform: rotate(30deg);
+}
