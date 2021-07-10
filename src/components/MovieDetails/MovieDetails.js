@@ -10,12 +10,21 @@ const MovieDetails = ({ selectedMovie }) => {
         src={selectedMovie.backdrop_path}
         alt={`${selectedMovie.title} poster`}
       />
-      <h1>{selectedMovie.title}</h1>
-      <h2>Rating: {selectedMovie.average_rating}</h2>
-      <h2>Release Date:{dayjs(releaseDate).format('MMM DD YYYY')}</h2>
-      <p>Overview: {selectedMovie.overview}</p>
-      <p>Genre: {selectedMovie.genres}</p>
-      <p>Runtime:{selectedMovie.runtime} minutes</p>
+      <div className='text-box'>
+        <div className='title-container'>
+          <h2 className='title'>{selectedMovie.title}</h2>
+        </div>
+        <h3>Overview:</h3>
+        <p>{selectedMovie.overview}</p>
+        <h3>Rating:</h3>
+        <p>{selectedMovie.average_rating.toFixed(1)}/10 </p>
+        <h3>Runtime:</h3>
+        <p>{selectedMovie.runtime} minutes</p>
+        <h3>Genre:</h3>
+        <p>{selectedMovie.genres}</p>
+        <h3>Release Date:</h3>
+        <p>{dayjs(releaseDate).format('MMMM D, YYYY')}</p>
+      </div>
     </div>
   );
 };
