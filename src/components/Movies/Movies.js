@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import FeatMovie from '../FeatMovie/FeatMovie';
 import './Movies.css';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
 class Movies extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedMovie: null
-    };
   }
 
   filterMovies = id => {
     const { movies } = this.props;
     const clickedMovie = movies.movies.find(movie => id === movie.id);
-    this.setState({ selectedMovie: clickedMovie });
+    this.props.updateSelectedMovie(clickedMovie);
   };
-
-  //when you click home button state will be re-set to null
 
   getMovieCards = () => {
     const { movies } = this.props;
@@ -38,11 +34,16 @@ class Movies extends Component {
 
   render() {
     return (
-      <section className='movies-container'>
-        {!this.state.selectedMovie ? (
-          this.getMovieCards()
+      <section>
+        {!this.props.selectedMovie ? (
+          <div>
+            <FeatMovie props={this.props}/>
+            <div className='movies-container'>
+              {this.getMovieCards()}
+            </div>
+          </div>
         ) : (
-          <MovieDetails selectedMovie={this.state.selectedMovie} />
+          <MovieDetails selectedMovie={this.props.selectedMovie} />
         )}
       </section>
     );
