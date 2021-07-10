@@ -1,7 +1,14 @@
 
 header {
   background-color: rgb(34, 34, 34);
-  padding: 8% 2% 2%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  z-index: 1;
 }
 
 h1 {
@@ -10,7 +17,8 @@ h1 {
 
 .logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 50%;
 }
 
 .logo-image {

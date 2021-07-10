@@ -1,16 +1,16 @@
 .featured-movie-section {
   position: relative;
+  margin: 6%;
 }
 
 .featured-movie-img {
   width: 100%;
 }
 
-.featured-title {
-  background-color: rgb(34, 34, 34);
+.featured {
+  background-color: rgba(34, 34, 34, 0.6);
   color: #ffffff;
   height: 100%;
-  opacity: 60%;
   padding: 2%;
   position: absolute;
   top: 0;
@@ -18,9 +18,13 @@
   width: 30%;
 }
 
-.featured-title h2 {
+.featured h2 {
   border-bottom: 3px solid #ffffff;
+  font-size: 1.5em;
+  opacity: 100%;
+}
+
+.featured h3 {
   font-size: 2em;
   opacity: 100%;
-  padding: 10px;
 }

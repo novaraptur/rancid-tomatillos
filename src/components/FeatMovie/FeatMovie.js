@@ -7,8 +7,9 @@ const FeatMovie = ({props}) => {
   return (
     <section className="featured-movie-section">
       <img className="featured-movie-img" src={props.movies.movies[movieIndex].backdrop_path} alt={props.movies.movies[movieIndex].title + ' preview image.'}/>
-      <div className='featured-title'>
-        <h2>{props.movies.movies[movieIndex].title}</h2>
+      <div className='featured'>
+        <h2>Featured</h2>
+        <h3>{props.movies.movies[movieIndex].title}</h3>
       </div>
     </section>
   )
