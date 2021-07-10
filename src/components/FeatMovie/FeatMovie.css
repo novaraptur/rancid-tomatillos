@@ -1,0 +1,7 @@
+.featured-movie-img {
+  max-width: 100%;
+}
+
+.featured-movie-img:hover {
+  opacity: 75%;
+}

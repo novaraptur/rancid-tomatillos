@@ -6,10 +6,14 @@ class FeatMovie extends Component {
     super(props);
   }
 
+  generateMovie() {
+    return Math.floor(Math.random() * this.props.movies.movies.length);
+  }
+
   render() {
     return (
       <section className="featured-movie-section">
-        <img src={this.props.movies.movies[0].backdrop_path} />
+        <img className="featured-movie-img" src={this.props.movies.movies[this.generateMovie()].backdrop_path} />
       </section>
     )
   }
