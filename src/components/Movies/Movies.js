@@ -10,9 +10,7 @@ class Movies extends Component {
   }
 
   filterMovies = id => {
-    const { movies } = this.props;
-    const clickedMovie = movies.find(movie => id === movie.id);
-    this.props.updateSelectedMovie(clickedMovie);
+    this.props.updateSelectedMovie(id);
   };
 
   getMovieCards = () => {

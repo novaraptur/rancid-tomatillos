@@ -16,16 +16,23 @@ class App extends Component {
     };
   }
 
-  updateSelectedMovie = clickedMovie => {
-    // this will happen after a successful fetch:
-    this.setState({ selectedMovie: clickedMovie });
+  updateSelectedMovie = clickedMovieID => {
+    let moviePath;
+    if (!clickedMovieID) {
+      moviePath = 'movies';
+    } else {
+      moviePath = `movies/${clickedMovieID}`;
+    }
+    fetchMovies(moviePath)
+      .then(data => this.setState({ selectedMovie: data.movie }))
+      .catch(err => console.error(err));
   };
 
   navigate = () => {
     if (!this.state.selectedMovie) {
       console.log('Scroll down to movie cards');
     } else {
-      this.updateSelectedMovie(null);
+      this.updateSelectedMovie();
     }
   };
 
