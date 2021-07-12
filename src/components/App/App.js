@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import { cleanAPIData } from '../../apiCalls/util';
 import Header from '../HeaderAndNav/Header';
 import FeatMovie from '../FeatMovie/FeatMovie';
 import Movies from '../Movies/Movies';
@@ -17,12 +17,13 @@ class App extends Component {
   }
 
   clearSelectedMovie = () => {
-    this.setState({selectedMovie: null});
-  }
+    this.setState({ selectedMovie: null });
+  };
 
-  updateSelectedMovie = (clickedMovieID) => {
+  updateSelectedMovie = clickedMovieID => {
     fetchMovie(clickedMovieID)
-      .then(data => this.setState({ selectedMovie: data.movie }))
+      .then(data => cleanAPIData(data))
+      .then(movie => this.setState({ selectedMovie: movie.movie }))
       .catch(err => console.error(err));
   };
 
