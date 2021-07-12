@@ -4,7 +4,7 @@ import './App.css';
 import Header from '../HeaderAndNav/Header';
 import FeatMovie from '../FeatMovie/FeatMovie';
 import Movies from '../Movies/Movies';
-import { fetchMovies } from '../../apiCalls/apiCalls';
+import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
 import util from '../../apiCalls/util';
 
 class App extends Component {
@@ -16,16 +16,21 @@ class App extends Component {
     };
   }
 
-  updateSelectedMovie = clickedMovie => {
-    // this will happen after a successful fetch:
-    this.setState({ selectedMovie: clickedMovie });
+  clearSelectedMovie = () => {
+    this.setState({selectedMovie: null});
+  }
+
+  updateSelectedMovie = (clickedMovieID) => {
+    fetchMovie(clickedMovieID)
+      .then(data => this.setState({ selectedMovie: data.movie }))
+      .catch(err => console.error(err));
   };
 
   navigate = () => {
     if (!this.state.selectedMovie) {
       console.log('Scroll down to movie cards');
     } else {
-      this.updateSelectedMovie(null);
+      this.clearSelectedMovie();
     }
   };
 

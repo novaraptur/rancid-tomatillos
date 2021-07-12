@@ -4,15 +4,13 @@ import './MovieCard.css';
 const dayjs = require('dayjs');
 
 const MovieCard = props => {
-  const { id, poster, title, rating, releaseDate, filterMovies } = props;
+  const { id, poster, title, rating, releaseDate, updateSelectedMovie } = props;
   const [inHover, setHover] = useState(false);
 
   function handleClick(event) {
     event.preventDefault();
     const target = parseInt(event.target.closest('button').id);
-    // instead of filterMovies
-    // just give the target(id) to something in App to make a fetch request
-    filterMovies(target);
+    updateSelectedMovie(target);
   }
 
   return (

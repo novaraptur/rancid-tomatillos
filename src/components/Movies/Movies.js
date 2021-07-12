@@ -9,12 +9,6 @@ class Movies extends Component {
     super(props);
   }
 
-  filterMovies = id => {
-    const { movies } = this.props;
-    const clickedMovie = movies.find(movie => id === movie.id);
-    this.props.updateSelectedMovie(clickedMovie);
-  };
-
   getMovieCards = () => {
     const { movies } = this.props;
     return movies.map(movie => {
@@ -26,7 +20,7 @@ class Movies extends Component {
           title={movie.title}
           rating={movie.average_rating}
           releaseDate={movie.release_date}
-          filterMovies={this.filterMovies}
+          updateSelectedMovie={this.props.updateSelectedMovie}
         />
       );
     });
