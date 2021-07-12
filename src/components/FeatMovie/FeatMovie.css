@@ -14,23 +14,20 @@
 }
 
 .featured {
-  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0));
-  color: rgb(34, 34, 34);
-  height: 100%;
-  padding: 2%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
+  display: block;
+  color: white;
+  margin: 1% 0%;
+  padding: 0.5% 0%;
+  width: 100%;
 }
 
 .featured h2 {
-  border-bottom: 3px solid rgb(34, 34, 34);
+  color: #ADD481;
+  border-bottom: 3px solid #ADD481;;
   font-size: 1.5em;
-  opacity: 100%;
+  padding: 1%;
 }
 
 .featured h3 {
   font-size: 2em;
-  opacity: 100%;
 }

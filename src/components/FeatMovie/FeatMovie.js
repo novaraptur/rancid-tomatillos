@@ -16,15 +16,15 @@ const FeatMovie = ({ props, updateSelectedMovie }) => {
       id={props.movies[movieIndex].id}
       onClick={event => handleClick(event)}
     >
+      <div className='featured'>
+        <h2>Featured</h2>
+        <h3>{props.movies[movieIndex].title}</h3>
+      </div>
       <img
         className='featured-movie-img'
         src={props.movies[movieIndex].backdrop_path}
         alt={props.movies[movieIndex].title + ' preview image.'}
       />
-      <div className='featured'>
-        <h2>Featured</h2>
-        <h3>{props.movies[movieIndex].title}</h3>
-      </div>
     </button>
   );
 };
