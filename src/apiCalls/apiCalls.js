@@ -6,6 +6,11 @@ export async function fetchMovies(endpoint) {
   return checkForErrors(response);
 }
 
+export async function fetchMovie(id) {
+  const response = await fetch(`${baseURL}movies/${id}`);
+  return checkForErrors(response);
+}
+
 function checkForErrors(response) {
   if (!response.ok) {
     throw new Error(response.status + ' ' + response.statusText);
