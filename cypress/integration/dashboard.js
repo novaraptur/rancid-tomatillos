@@ -1,3 +1,5 @@
+import movieData from './testData.js'
+
 describe('dummy test', () => {
   it('should confirm true is true', () =>{
     expect(true).to.equal(true)
@@ -5,14 +7,30 @@ describe('dummy test', () => {
 })
 
 describe('Page is loaded', () => {
-  it('should direct to the correct URL upon load', () => {
+  beforeEach(() => {
     cy.visit('http://localhost:3000/')
-    .get('header')
+  })
+
+  it('should direct to the correct URL upon load', () => {
+    cy.get('header')
     .contains('Rancid Tomatillos')
     .get('section')
     .contains('Featured')
     .get('div')
     .should('have.class', 'movies-container')
+  })
+
+  it('should fetch all movies from API and display on the page', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+      statusCode: 200,
+      body: { movieData }
+    })
+    .get('div')
+    .should('have.class', 'movies-container')
+    .get('button')
+    .should('have.class', 'movie-card')
+    .get('button')
+    .should('have.class', 'featured-movie-section')
   })
 })
 
