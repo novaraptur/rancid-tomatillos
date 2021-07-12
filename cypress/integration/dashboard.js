@@ -32,7 +32,17 @@ describe('Page is loaded', () => {
     .get('button')
     .should('have.class', 'featured-movie-section')
   })
+
+  it('should display an error if server responds with 500 error code', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+      statusCode: 500,
+      body: { movieData }
+    })
+
+  })
 })
+
+
 
 
 //all movies are fetched (201) see all movies
