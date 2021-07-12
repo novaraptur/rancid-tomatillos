@@ -1,6 +1,12 @@
 .featured-movie-section {
+  background: none;
+  border: none;
   position: relative;
   margin: 6%;
+}
+
+.featured-movie-section:hover {
+  opacity: 0.7;
 }
 
 .featured-movie-img {
@@ -8,23 +14,20 @@
 }
 
 .featured {
-  background-color: rgba(34, 34, 34, 0.6);
-  color: #ffffff;
-  height: 100%;
-  padding: 2%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
+  display: block;
+  color: white;
+  margin: 1% 0%;
+  padding: 0.5% 0%;
+  width: 100%;
 }
 
 .featured h2 {
-  border-bottom: 3px solid #ffffff;
+  color: #ADD481;
+  border-bottom: 3px solid #ADD481;;
   font-size: 1.5em;
-  opacity: 100%;
+  padding: 1%;
 }
 
 .featured h3 {
   font-size: 2em;
-  opacity: 100%;
 }

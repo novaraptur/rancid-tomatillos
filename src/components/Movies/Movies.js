@@ -31,7 +31,7 @@ class Movies extends Component {
       <section>
         {!this.props.selectedMovie ? (
           <div>
-            <FeatMovie props={this.props} />
+            <FeatMovie props={this.props} updateSelectedMovie={this.props.updateSelectedMovie} />
             <div className='movies-container'>{this.getMovieCards()}</div>
           </div>
         ) : (
