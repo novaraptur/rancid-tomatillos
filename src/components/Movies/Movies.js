@@ -5,9 +5,6 @@ import './Movies.css';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
 class Movies extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   getMovieCards = () => {
     const { movies } = this.props;

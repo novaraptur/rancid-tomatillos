@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import { cleanAPIData } from '../../apiCalls/util';
 import Header from '../HeaderAndNav/Header';
-import FeatMovie from '../FeatMovie/FeatMovie';
 import Movies from '../Movies/Movies';
 import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
-import util from '../../apiCalls/util';
+import Errors from '../Errors/Errors'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
-      selectedMovie: null
+      selectedMovie: null,
+      error: ''
     };
   }
 
@@ -24,7 +24,7 @@ class App extends Component {
     fetchMovie(clickedMovieID)
       .then(data => cleanAPIData(data))
       .then(movie => this.setState({ selectedMovie: movie.movie }))
-      .catch(err => console.error(err));
+      .catch(err => this.setState({error: err.message}));
   };
 
   navigate = () => {
@@ -38,23 +38,28 @@ class App extends Component {
   componentDidMount() {
     fetchMovies('movies')
       .then(data => this.setState({ movies: data.movies }))
-      .catch(err => console.error(err));
+      .catch(err => this.setState({error: err.message}));
   }
 
   render() {
+    const {error} = this.state;
     return (
       <main>
         <Header navigate={this.navigate} />
-        {!this.state.movies.length && (
+        {!!error.length && <Errors error={error}/>}
+
+        {!error.length && !this.state.movies.length && (
           <h1 className='loading'>Movies loading...</h1>
         )}
-        {!!this.state.movies.length && (
+
+        {!error.length && !!this.state.movies.length && (
           <Movies
             movies={this.state.movies}
             selectedMovie={this.state.selectedMovie}
             updateSelectedMovie={this.updateSelectedMovie}
           />
         )}
+
       </main>
     );
   }
