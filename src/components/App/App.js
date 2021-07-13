@@ -4,6 +4,7 @@ import { cleanAPIData } from '../../apiCalls/util';
 import Header from '../HeaderAndNav/Header';
 import FeatMovie from '../FeatMovie/FeatMovie';
 import Movies from '../Movies/Movies';
+import Footer from '../Footer/Footer';
 import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
 import util from '../../apiCalls/util';
 
@@ -55,6 +56,7 @@ class App extends Component {
             updateSelectedMovie={this.updateSelectedMovie}
           />
         )}
+        <Footer />
       </main>
     );
   }
