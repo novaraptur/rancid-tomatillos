@@ -3,6 +3,7 @@ import './App.css';
 import { cleanAPIData } from '../../apiCalls/util';
 import Header from '../HeaderAndNav/Header';
 import Movies from '../Movies/Movies';
+import Footer from '../Footer/Footer';
 import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
 import Errors from '../Errors/Errors'
 
@@ -59,7 +60,7 @@ class App extends Component {
             updateSelectedMovie={this.updateSelectedMovie}
           />
         )}
-
+        <Footer />
       </main>
     );
   }
