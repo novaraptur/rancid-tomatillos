@@ -31,3 +31,15 @@
 .featured h3 {
   font-size: 2em;
 }
+
+@media only screen and (max-width: 1050px) {
+  .featured-movie-section {
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .featured-movie-section {
+    margin-top: 20%;
+  }
+}
