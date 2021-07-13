@@ -5,6 +5,8 @@ import './Movies.css';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
 class Movies extends Component {
+  // add component did mount here to do the fetch call to update the selected movie
+  // if movie render this
 
   getMovieCards = () => {
     const { movies } = this.props;
@@ -28,7 +30,10 @@ class Movies extends Component {
       <section>
         {!this.props.selectedMovie ? (
           <div>
-            <FeatMovie props={this.props} updateSelectedMovie={this.props.updateSelectedMovie} />
+            <FeatMovie
+              props={this.props}
+              updateSelectedMovie={this.props.updateSelectedMovie}
+            />
             <div className='movies-container'>{this.getMovieCards()}</div>
           </div>
         ) : (

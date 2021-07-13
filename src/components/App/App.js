@@ -5,7 +5,8 @@ import Header from '../HeaderAndNav/Header';
 import Movies from '../Movies/Movies';
 import Footer from '../Footer/Footer';
 import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
-import Errors from '../Errors/Errors'
+import Errors from '../Errors/Errors';
+import { Route, Link, NavLink, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends Component {
     fetchMovie(clickedMovieID)
       .then(data => cleanAPIData(data))
       .then(movie => this.setState({ selectedMovie: movie.movie }))
-      .catch(err => this.setState({error: err.message}));
+      .catch(err => this.setState({ error: err.message }));
   };
 
   navigate = () => {
@@ -39,27 +40,47 @@ class App extends Component {
   componentDidMount() {
     fetchMovies('movies')
       .then(data => this.setState({ movies: data.movies }))
-      .catch(err => this.setState({error: err.message}));
+      .catch(err => this.setState({ error: err.message }));
   }
 
   render() {
-    const {error} = this.state;
+    const { error } = this.state;
     return (
       <main>
         <Header navigate={this.navigate} />
-        {!!error.length && <Errors error={error}/>}
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => {
+              const hasData = !error.length && !!this.state.movies.length;
+              const noDataYet = !error.length && !this.state.movies.length;
+              return (
+                <>
+                  {!!error.length && <Errors error={error} />}
 
-        {!error.length && !this.state.movies.length && (
-          <h1 className='loading'>Movies loading...</h1>
-        )}
+                  {noDataYet && <h1 className='loading'>Movies loading...</h1>}
 
-        {!error.length && !!this.state.movies.length && (
-          <Movies
-            movies={this.state.movies}
-            selectedMovie={this.state.selectedMovie}
-            updateSelectedMovie={this.updateSelectedMovie}
+                  {hasData && (
+                    <Movies
+                      movies={this.state.movies}
+                      selectedMovie={this.state.selectedMovie}
+                      updateSelectedMovie={this.updateSelectedMovie}
+                    />
+                  )}
+                </>
+              );
+            }}
           />
-        )}
+          <Route
+            render={() => {
+              return (
+                <Errors error={'Page not found, do you want to go home?'} />
+              );
+            }}
+          />
+        </Switch>
+
         <Footer />
       </main>
     );
