@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import FeatMovie from '../FeatMovie/FeatMovie';
 import './Movies.css';
-import MovieDetails from '../MovieDetails/MovieDetails';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Movies extends Component {
-  // add component did mount here to do the fetch call to update the selected movie
-  // if movie render this
-
   getMovieCards = () => {
     const { movies } = this.props;
     return movies.map(movie => {
@@ -31,13 +27,13 @@ class Movies extends Component {
   render() {
     return (
       <section>
-          <div>
-              <FeatMovie
-                props={this.props}
-                updateSelectedMovie={this.props.updateSelectedMovie}
-              />
-            <div className='movies-container'>{this.getMovieCards()}</div>
-          </div>
+        <div>
+          <FeatMovie
+            props={this.props}
+            updateSelectedMovie={this.props.updateSelectedMovie}
+          />
+          <div className='movies-container'>{this.getMovieCards()}</div>
+        </div>
       </section>
     );
   }

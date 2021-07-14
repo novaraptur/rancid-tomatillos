@@ -4,7 +4,7 @@ import './MovieCard.css';
 const dayjs = require('dayjs');
 
 const MovieCard = props => {
-  const { id, poster, title, rating, releaseDate, updateSelectedMovie } = props;
+  const { id, poster, title, rating, releaseDate } = props;
   const [inHover, setHover] = useState(false);
 
   return (
