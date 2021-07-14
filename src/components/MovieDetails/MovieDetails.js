@@ -1,5 +1,6 @@
 import { fetchMovie } from '../../apiCalls/apiCalls';
 import { cleanAPIData } from '../../apiCalls/util';
+import Errors from '../Errors/Errors';
 import React, { Component } from 'react';
 import './MovieDetails.css';
 const dayjs = require('dayjs');
@@ -44,7 +45,7 @@ class MovieDetails extends Component {
             </div>
           </div>
         ) : (
-          <div>Movie Loading...</div>
+          <Errors error={'Movie Loading...'} />
         )}
       </>
     );
