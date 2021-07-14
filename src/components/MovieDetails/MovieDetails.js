@@ -1,8 +1,14 @@
+import { fetchMovie } from '../../apiCalls/apiCalls'
+import { cleanAPIData } from '../../apiCalls/util'
 import React from 'react';
 import './MovieDetails.css';
 const dayjs = require('dayjs');
 
-const MovieDetails = ({ selectedMovie }) => {
+const MovieDetails = ({ selectedId }) => {
+  fetchMovie(selectedId)
+    .then(data => cleanAPIData(data))
+    .catch(err => this.setState({ error: err.message }));
+
   const releaseDate = selectedMovie.release_date;
   return (
     <div className='movie-details' id={selectedMovie.id}>

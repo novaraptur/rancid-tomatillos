@@ -4,29 +4,22 @@ import { cleanAPIData } from '../../apiCalls/util';
 import Header from '../HeaderAndNav/Header';
 import Movies from '../Movies/Movies';
 import Footer from '../Footer/Footer';
+import MovieDetails from '../MovieDetails/MovieDetails'
 import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
 import Errors from '../Errors/Errors';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
-      selectedMovie: null,
       error: ''
     };
   }
 
   clearSelectedMovie = () => {
     this.setState({ selectedMovie: null });
-  };
-
-  updateSelectedMovie = clickedMovieID => {
-    fetchMovie(clickedMovieID)
-      .then(data => cleanAPIData(data))
-      .then(movie => this.setState({ selectedMovie: movie.movie }))
-      .catch(err => this.setState({ error: err.message }));
   };
 
   navigate = () => {
@@ -49,6 +42,14 @@ class App extends Component {
       <main>
         <Header navigate={this.navigate} />
         <Switch>
+
+        <Route
+          path="/:movieId"
+          render={({ match }) => {
+            return <MovieDetails selectedId={match.params.movieId} />
+          }}
+        />
+
           <Route
             exact
             path='/'
@@ -72,6 +73,7 @@ class App extends Component {
               );
             }}
           />
+
           <Route
             render={() => {
               return (

@@ -31,25 +31,13 @@ class Movies extends Component {
   render() {
     return (
       <section>
-        {!this.props.selectedMovie ? (
           <div>
-            <NavLink to='/:movieId'>
               <FeatMovie
                 props={this.props}
                 updateSelectedMovie={this.props.updateSelectedMovie}
               />
-            </NavLink>
             <div className='movies-container'>{this.getMovieCards()}</div>
           </div>
-        ) : (
-          <Route
-            path="/:movieId"
-            render={({ match }) => {
-              console.log(match);
-              <MovieDetails selectedMovie={this.props.selectedMovie} />
-            }}
-          />
-        )}
       </section>
     );
   }

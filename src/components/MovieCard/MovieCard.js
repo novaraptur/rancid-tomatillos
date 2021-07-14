@@ -7,19 +7,12 @@ const MovieCard = props => {
   const { id, poster, title, rating, releaseDate, updateSelectedMovie } = props;
   const [inHover, setHover] = useState(false);
 
-  function handleClick(event) {
-    event.preventDefault();
-    const target = parseInt(event.target.closest('button').id);
-    updateSelectedMovie(target);
-  }
-
   return (
     <button
       className='movie-card'
       id={id}
       onMouseEnter={event => setHover(true)}
       onMouseLeave={event => setHover(false)}
-      onClick={event => handleClick(event)}
     >
       <img src={poster} alt={title + ' movie poster'} />
       {inHover && (
