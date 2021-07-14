@@ -4,14 +4,8 @@ import './MovieCard.css';
 const dayjs = require('dayjs');
 
 const MovieCard = props => {
-  const { id, poster, title, rating, releaseDate, updateSelectedMovie } = props;
+  const { id, poster, title, rating, releaseDate } = props;
   const [inHover, setHover] = useState(false);
-
-  function handleClick(event) {
-    event.preventDefault();
-    const target = parseInt(event.target.closest('button').id);
-    updateSelectedMovie(target);
-  }
 
   return (
     <button
@@ -19,7 +13,6 @@ const MovieCard = props => {
       id={id}
       onMouseEnter={event => setHover(true)}
       onMouseLeave={event => setHover(false)}
-      onClick={event => handleClick(event)}
     >
       <img src={poster} alt={title + ' movie poster'} />
       {inHover && (
