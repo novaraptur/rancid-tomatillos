@@ -10,8 +10,6 @@ const Nav = () => {
         Home
       </NavLink>
       <Link
-        exact
-        activeClassName='active'
         to='movieCards'
         spy={true}
         smooth={true}

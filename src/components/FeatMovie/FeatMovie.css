@@ -1,8 +1,9 @@
 .featured-movie-section {
   background: none;
   border: none;
+  margin: 5%;
+  padding: 0;
   position: relative;
-  margin: 6%;
 }
 
 .featured-movie-section:hover {
@@ -14,6 +15,9 @@
 }
 
 .featured {
+  position: absolute;
+  top: 0;
+  background: linear-gradient(to left, transparent 0%, black 75%, black 100%);
   display: block;
   color: white;
   margin: 1% 0%;
@@ -22,14 +26,19 @@
 }
 
 .featured h2 {
-  color: #ADD481;
-  border-bottom: 3px solid #ADD481;;
+  color: #add481;
+  border-bottom: 3px solid #add481;
+  width: 30%;
   font-size: 1.5em;
-  padding: 1%;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .featured h3 {
   font-size: 2em;
+  text-align: left;
+  padding-left: 20px;
+  margin: 0;
 }
 
 @media only screen and (max-width: 1050px) {
