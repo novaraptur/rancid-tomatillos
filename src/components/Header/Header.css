@@ -1,0 +1,28 @@
+
+header {
+  background-color: rgb(34, 34, 34);
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  z-index: 1;
+}
+
+h1 {
+  color: #ADD481;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.logo-image {
+  padding: 1%;
+  max-width: 40px;
+  transform: rotate(30deg);
+}

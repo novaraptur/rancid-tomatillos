@@ -1,0 +1,26 @@
+nav {
+  background-color: rgb(34, 34, 34);
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  width: 60%;
+}
+
+.nav-button {
+  background-color: rgb(34, 34, 34);
+  border: 2px solid #ff91ec;
+  border-radius: 5px;
+  color: #ff91ec;
+  padding: 1%;
+  min-width: 60px;
+  width: 15%;
+}
+
+.nav-button:hover {
+  background-color: #ff91ec;
+  color: #ffffff;
+}
+
+.active {
+  display: none;
+}
