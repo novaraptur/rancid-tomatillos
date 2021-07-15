@@ -1,19 +1,18 @@
-
 footer {
   align-items: center;
   background-color: rgb(34, 34, 34);
-  color: #ADD481;
+  color: #add481;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 2%;
 }
 
-a {
+footer a {
   color: #ff91ec;
   text-decoration: none;
 }
 
-a:hover {
+footer a:hover {
   color: #ffffff;
 }

@@ -1,5 +1,5 @@
 import { fetchMovie } from '../../apiCalls/apiCalls';
-import { cleanAPIData } from '../../apiCalls/util';
+import { cleanAPIData } from '../../apiCalls/utils';
 import Errors from '../Errors/Errors';
 import React, { Component } from 'react';
 import './MovieDetails.css';
@@ -22,24 +22,33 @@ class MovieDetails extends Component {
 
   render() {
     const { movie } = this.state;
-    const releaseDate = movie.release_date;
+    const {
+      id,
+      title,
+      backdropPath,
+      overview,
+      averageRating,
+      genres,
+      runtime,
+      releaseDate
+    } = this.state.movie;
     return (
       <>
         {movie ? (
-          <div className='movie-details' id={movie.id}>
-            <img src={movie.backdrop_path} alt={`${movie.title} poster`} />
+          <div className='movie-details' id={id}>
+            <img src={backdropPath} alt={`${title} poster`} />
             <div className='text-box'>
               <div className='title-container'>
-                <h2 className='title'>{movie.title}</h2>
+                <h2 className='title'>{title}</h2>
               </div>
               <h3>Overview:</h3>
-              <p>{movie.overview}</p>
+              <p>{overview}</p>
               <h3>Rating:</h3>
-              <p>{movie.average_rating.toFixed(1)}/10 </p>
+              <p>{averageRating.toFixed(1)}/10 </p>
               <h3>Runtime:</h3>
-              <p>{movie.runtime} minutes</p>
+              <p>{runtime} minutes</p>
               <h3>Genre:</h3>
-              <p>{movie.genres}</p>
+              <p>{genres}</p>
               <h3>Release Date:</h3>
               <p>{dayjs(releaseDate).format('MMMM D, YYYY')}</p>
             </div>

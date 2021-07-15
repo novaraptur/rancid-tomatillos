@@ -1,29 +1,20 @@
 import React from 'react';
 import './FeatMovie.css';
 
-const FeatMovie = ({ props, updateSelectedMovie }) => {
-  const movieIndex = Math.floor(Math.random() * props.movies.length);
-
-  function handleClick(event) {
-    event.preventDefault();
-    const target = parseInt(event.target.closest('button').id);
-    updateSelectedMovie(target);
-  }
+const FeatMovie = ({ movies }) => {
+  const movieIndex = Math.floor(Math.random() * movies.length);
+  const { id, backdrop_path, title } = movies[movieIndex];
 
   return (
-    <button
-      className='featured-movie-section'
-      id={props.movies[movieIndex].id}
-      onClick={event => handleClick(event)}
-    >
+    <button className='featured-movie-section' id={id}>
       <div className='featured'>
-        <h2>Featured</h2>
-        <h3>{props.movies[movieIndex].title}</h3>
+        <h2>Featured Movie</h2>
+        <h3>{title}</h3>
       </div>
       <img
         className='featured-movie-img'
-        src={props.movies[movieIndex].backdrop_path}
-        alt={props.movies[movieIndex].title + ' preview image.'}
+        src={backdrop_path}
+        alt={title + ' preview image'}
       />
     </button>
   );

@@ -1,4 +1,3 @@
-
 nav {
   background-color: rgb(34, 34, 34);
   display: flex;
@@ -20,4 +19,8 @@ nav {
 .nav-button:hover {
   background-color: #ff91ec;
   color: #ffffff;
+}
+
+.active {
+  display: none;
 }
