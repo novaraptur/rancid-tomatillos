@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-import { cleanAPIData } from '../../apiCalls/util';
-import Header from '../HeaderAndNav/Header';
+import { fetchMovies } from '../../apiCalls/apiCalls';
+import { Route, Switch } from 'react-router-dom';
+import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
 import Footer from '../Footer/Footer';
-import MovieDetails from '../MovieDetails/MovieDetails'
-import { fetchMovies, fetchMovie } from '../../apiCalls/apiCalls';
+import ScrollToTop from '../ScrollToTop';
+import MovieDetails from '../MovieDetails/MovieDetails';
 import Errors from '../Errors/Errors';
-import { Route, Switch } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -18,49 +18,49 @@ class App extends Component {
     };
   }
 
-  clearSelectedMovie = () => {
-    this.setState({ selectedMovie: null });
-  };
-
-  navigate = () => {
-    if (!this.state.selectedMovie) {
-      console.log('Scroll down to movie cards');
-    } else {
-      this.clearSelectedMovie();
-    }
-  };
-
   componentDidMount() {
+    //may want to add a loading state since we are making a fetch request
     fetchMovies('movies')
       .then(data => this.setState({ movies: data.movies }))
       .catch(err => this.setState({ error: err.message }));
   }
 
+  clearSelectedMovie = () => {
+    this.setState({ selectedMovie: null });
+  };
+
+  //might make more sense for movies to fetch it's own movies
+  //and move all of the logic out of the render into movies
+  // app should just be a series of Routes, no logic
+  // maybe error boundaries
+
   render() {
     const { error } = this.state;
+    //desctructure movies
+    const { movies } = this.state;
     return (
       <main>
+        <ScrollToTop />
         <Header navigate={this.navigate} />
         <Switch>
-
-        <Route
-          path="/:movieId"
-          render={({ match }) => {
-            return <MovieDetails selectedId={match.params.movieId} />
-          }}
-        />
+          <Route
+            path='/:movieId'
+            render={({ match }) => {
+              return <MovieDetails selectedId={match.params.movieId} />;
+            }}
+          />
 
           <Route
             exact
             path='/'
             render={() => {
               const hasData = !error.length && !!this.state.movies.length;
-              const noDataYet = !error.length && !this.state.movies.length;
+              const loading = !error.length && !this.state.movies.length;
               return (
                 <>
                   {!!error.length && <Errors error={error} />}
 
-                  {noDataYet && <h1 className='loading'>Movies loading...</h1>}
+                  {loading && <h1 className='loading'>Movies loading...</h1>}
 
                   {hasData && (
                     <Movies
