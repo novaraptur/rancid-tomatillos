@@ -36,7 +36,6 @@ class App extends Component {
             }}
           />
           <Route
-            exact
             path='/'
             render={() => {
               const { error, movies } = this.state;
@@ -51,6 +50,7 @@ class App extends Component {
               );
             }}
           />
+
           <Route
             render={() => {
               return (
