@@ -30,12 +30,14 @@ class App extends Component {
         <Header navigate={this.navigate} />
         <Switch>
           <Route
-            path='/:movieId'
+            exact
+            path='/movies/:movieId'
             render={({ match }) => {
               return <MovieDetails selectedId={match.params.movieId} />;
             }}
           />
           <Route
+            exact
             path='/'
             render={() => {
               const { error, movies } = this.state;

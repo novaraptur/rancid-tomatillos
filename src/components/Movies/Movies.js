@@ -9,7 +9,7 @@ class Movies extends Component {
     const { movies } = this.props;
     return movies.map(movie => {
       return (
-        <NavLink to={`/${movie.id}`} key={movie.id}>
+        <NavLink to={`/movies/${movie.id}`} key={movie.id}>
           <MovieCard {...movie} />
         </NavLink>
       );
