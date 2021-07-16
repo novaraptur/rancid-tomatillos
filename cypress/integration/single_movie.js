@@ -7,7 +7,7 @@ describe('dummy test for single movie', () => {
 
 describe('Single Movie Page', () => {
   it('should direct to the correct URL upon load', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/') //http://localhost:3000/movie-id
       .get('header')
       .contains('Rancid Tomatillos')
       .get('section')
@@ -19,22 +19,20 @@ describe('Single Movie Page', () => {
       .and('contain', 'Release Date')
       .and('contain', 'Runtime')
   });
+
+  it('should fetch a single movie from the API');
+
+  it('should show an error if 404 status code');
+
+  it('should show an error if 500 status code');
+
+  it('should show a general error if any other failing status code');
+
+  it('should allow the user to click the browser\'s forward and back arrows to navigate');
+
+  it('should not show the movie cards section');
+
+  it('should not show the featured movie section');
+
+  it('should allow the user to click a button to go back to the main dashboard');
 });
-
-// URL path is baseURL/id
-
-// the user can click the browser's forward and back arrows to navigate
-
-// no other movies are visible
-
-// featured movie is not visible
-
-// click browse to go back home
-
-//single movie is fetched
-
-// if 500 see 500 error page
-
-//if 404 see 404 error page
-
-//if bad / error (general) see general error page

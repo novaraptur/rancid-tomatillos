@@ -33,19 +33,14 @@ describe('Page is loaded', () => {
     .should('have.class', 'featured-movie-section')
   })
 
+  it('should show an error if 404 status code');
+
+  it('should show an error if 500 status code');
+
+  it('should allow the user to click on a movie card to view a detail page for that movie');
+
+  it('should allow the user to click on the featured movie banner to view a detail page for that movie');
+
+  it('should allow the user to automatically scroll down to the movie cards by clicking the Browse button');
+
 })
-
-
-
-
-//all movies are fetched (201) see all movies
-
-// if 500 see error
-
-//if 404 see error
-
-//can click a movie card go to the correct single moviepage
-
-//can click browse to scroll down
-
-// can click the featured movie and see the single movie
