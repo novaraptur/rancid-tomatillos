@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <h2>AUTHORS</h2>
-      <h4>
+      <h3>
         <a
           href='https://github.com/clairefields15'
           target='_blank'
@@ -21,7 +21,7 @@ const Footer = () => {
         >
           Dean Cook
         </a>
-      </h4>
+      </h3>
     </footer>
   );
 };

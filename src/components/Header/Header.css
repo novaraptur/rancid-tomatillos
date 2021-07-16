@@ -1,28 +1,44 @@
-
 header {
   background-color: rgb(34, 34, 34);
   display: flex;
   justify-content: space-between;
-  padding: 1%;
   position: fixed;
+  height: 7em;
   top: 0;
   left: 0;
-  width: 98%;
+  width: 100%;
   z-index: 1;
+  box-shadow: 0px 5px 7px black;
 }
 
-h1 {
-  color: #ADD481;
+.logo h1 {
+  color: #add481;
 }
 
 .logo {
   display: flex;
   justify-content: flex-start;
-  width: 50%;
+  align-items: center;
+  width: 25em;
 }
 
 .logo-image {
   padding: 1%;
   max-width: 40px;
   transform: rotate(30deg);
+}
+
+@media only screen and (max-width: 600px) {
+  .logo h1 {
+    font-size: 1.5em;
+  }
+
+  .logo {
+    width: 30%;
+  }
+
+  header {
+    height: 5em;
+    width: 100vw;
+  }
 }

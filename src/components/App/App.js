@@ -30,7 +30,8 @@ class App extends Component {
         <Header navigate={this.navigate} />
         <Switch>
           <Route
-            path='/:movieId'
+            exact
+            path='/movies/:movieId'
             render={({ match }) => {
               return <MovieDetails selectedId={match.params.movieId} />;
             }}
@@ -45,12 +46,13 @@ class App extends Component {
               return (
                 <>
                   {!!error.length && <Errors error={error} />}
-                  {loading && <h1 className='loading'>Movies loading...</h1>}
+                  {loading && <h1 className='error-message'>Movies loading...</h1>}
                   {loaded && <Movies movies={movies} />}
                 </>
               );
             }}
           />
+
           <Route
             render={() => {
               return (

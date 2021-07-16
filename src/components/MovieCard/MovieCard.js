@@ -6,7 +6,8 @@ const dayjs = require('dayjs');
 const MovieCard = ({ ...movie }) => {
   const { id, average_rating, poster_path, release_date, title } = movie;
   const [inHover, setHover] = useState(false);
-  const release = dayjs(release_date).format('MMM DD YYYY');
+  const release = dayjs(release_date).format('MMM D, YYYY');
+  const rating = average_rating.toFixed(1) + ' / 10';
 
   return (
     <button
@@ -19,7 +20,7 @@ const MovieCard = ({ ...movie }) => {
       {inHover && (
         <div className='more-info'>
           <h2>{title}</h2>
-          <h3>Rating: {average_rating.toFixed(2)}</h3>
+          <h3>Rating: {rating}</h3>
           <h3>Release: {release}</h3>
         </div>
       )}
