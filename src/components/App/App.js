@@ -46,7 +46,7 @@ class App extends Component {
               return (
                 <>
                   {!!error.length && <Errors error={error} />}
-                  {loading && <h1 className='loading'>Movies loading...</h1>}
+                  {loading && <h1 className='error-message'>Movies loading...</h1>}
                   {loaded && <Movies movies={movies} />}
                 </>
               );

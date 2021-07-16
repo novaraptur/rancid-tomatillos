@@ -19,7 +19,7 @@ const Nav = () => {
           Browse Movies
         </Link>
       ) : (
-        <NavLink to='/' exact activeClassName='active' className='nav-button'>
+        <NavLink to='/' activeClassName='nav-button'>
           Home
         </NavLink>
       )}

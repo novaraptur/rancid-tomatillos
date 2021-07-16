@@ -1,9 +1,8 @@
 nav {
   background-color: rgb(34, 34, 34);
   display: flex;
-  justify-content: space-between;
-  padding: 1%;
-  width: 60%;
+  align-items: center;
+  position: relative;
 }
 
 .nav-button {
@@ -11,9 +10,15 @@ nav {
   border: 2px solid #ff91ec;
   border-radius: 5px;
   color: #ff91ec;
-  padding: 1%;
-  min-width: 60px;
-  width: 15%;
+  min-width: 65px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 4em;
+  position: absolute;
+  right: 20px;
 }
 
 .nav-button:hover {
@@ -21,6 +26,12 @@ nav {
   color: #ffffff;
 }
 
-.active {
-  display: none;
+@media only screen and (max-width: 600px) {
+  .nav-button {
+    width: 80px;
+    height: 2.5em;
+    position: absolute;
+    right: 20px;
+    margin: 0;
+  }
 }

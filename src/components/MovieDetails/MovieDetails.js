@@ -20,6 +20,14 @@ class MovieDetails extends Component {
       .catch(err => this.setState({ error: err.message }));
   }
 
+  formatGenres(genres) {
+    if (genres) {
+      return genres.join(', ');
+    } else {
+      return '';
+    }
+  }
+
   render() {
     const { movie } = this.state;
     const {
@@ -32,6 +40,9 @@ class MovieDetails extends Component {
       runtime,
       releaseDate
     } = this.state.movie;
+
+    const formattedGenres = this.formatGenres(genres);
+
     return (
       <>
         {movie ? (
@@ -41,16 +52,22 @@ class MovieDetails extends Component {
               <div className='title-container'>
                 <h2 className='title'>{title}</h2>
               </div>
-              <h3>Overview:</h3>
-              <p>{overview}</p>
-              <h3>Rating:</h3>
-              <p>{averageRating.toFixed(1)}/10 </p>
-              <h3>Runtime:</h3>
-              <p>{runtime} minutes</p>
-              <h3>Genre:</h3>
-              <p>{genres}</p>
-              <h3>Release Date:</h3>
-              <p>{dayjs(releaseDate).format('MMMM D, YYYY')}</p>
+              <section className='content-container'>
+                <section className='left-content'>
+                  <h3>Overview:</h3>
+                  <p>{overview}</p>
+                  <h3>Rating:</h3>
+                  <p>{averageRating.toFixed(1)}/10 </p>
+                </section>
+                <section className='right-content'>
+                  <h3>Runtime:</h3>
+                  <p>{runtime} minutes</p>
+                  <h3>Genre:</h3>
+                  <p>{formattedGenres}</p>
+                  <h3>Release Date:</h3>
+                  <p>{dayjs(releaseDate).format('MMMM D, YYYY')}</p>
+                </section>
+              </section>
             </div>
           </div>
         ) : (

@@ -6,7 +6,7 @@ const FeatMovie = ({ movies }) => {
   const { id, backdrop_path, title } = movies[movieIndex];
 
   return (
-    <button className='featured-movie-section' id={id}>
+    <button className='featured-movie-section' id={`${id}-featured`}>
       <div className='featured'>
         <h2>Featured Movie</h2>
         <h3>{title}</h3>
