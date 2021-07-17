@@ -7,7 +7,7 @@ describe('dummy test for single movie', () => {
 
 describe('Single Movie Page', () => {
   it('should direct to the correct URL upon load', () => {
-    cy.visit('http://localhost:3000/') //http://localhost:3000/movie-id
+    cy.visit('http://localhost:3000/movies/337401')
       .get('header')
       .contains('Rancid Tomatillos')
       .get('section')
@@ -20,19 +20,33 @@ describe('Single Movie Page', () => {
       .and('contain', 'Runtime')
   });
 
-  it('should fetch a single movie from the API');
+  it('should fetch a single movie from the API', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+      statusCode: 200
+    })
+  });
 
-  it('should show an error if 404 status code');
+  it('should allow the user to click the browser\'s forward and back arrows to navigate', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('#337401').click()
+    cy.go('back')
+    cy.url().should('eq', 'http://localhost:3000/')
+    cy.go('forward')
+    cy.url().should('eq', 'http://localhost:3000/movies/337401')
+  });
 
-  it('should show an error if 500 status code');
+  it('should not show the movie cards section', () => {
+    cy.get('.movies-container').should('not.exist')
+  });
 
-  it('should show a general error if any other failing status code');
+  it('should not show the featured movie section', () => {
+    cy.get('.featured-movie-section').should('not.exist')
+  });
 
-  it('should allow the user to click the browser\'s forward and back arrows to navigate');
+  //button should show 'home'
 
-  it('should not show the movie cards section');
-
-  it('should not show the featured movie section');
-
-  it('should allow the user to click a button to go back to the main dashboard');
+  it('should allow the user to click a button to go back to the main dashboard', () => {
+    cy.get('.nav-button').click()
+    cy.url().should('eq', 'http://localhost:3000/')
+  });
 });
