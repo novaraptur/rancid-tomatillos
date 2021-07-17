@@ -29,4 +29,27 @@ describe('Fetch errors', () => {
         "Sorry, we can't find the page you are looking for."
       );
   });
+
+  it('should display an error for an invalid URL', () => {
+    cy.visit('http://localhost:3000/asdff')
+    .get('.error-message')
+    .should(
+      'have.text',
+      'Page not found, do you want to go home?'
+    )
+    .get('.nav-button')
+    .contains('Home')
+  })
+
+  it('should display an error for an invalid URL', () => {
+    cy.visit('http://localhost:3000/movies/123094810234')
+    .get('.error-message')
+    .should(
+      'have.text',
+      'Page not found, do you want to go home?'
+    )
+    .get('.nav-button')
+    .contains('Home')
+  })
+
 });
