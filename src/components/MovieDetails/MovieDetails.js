@@ -1,15 +1,19 @@
-import { fetchMovie } from '../../apiCalls/apiCalls';
-import { cleanAPIData } from '../../apiCalls/utils';
+import { fetchMovie, fetchMovieTrailer } from '../../apiCalls/apiCalls';
+import { cleanAPIData, checkForTrailer } from '../../apiCalls/utils';
+import PropTypes from 'prop-types';
 import Errors from '../Errors/Errors';
 import React, { Component } from 'react';
 import './MovieDetails.css';
+import MovieTrailer from '../MovieTrailer/MovieTrailer';
 const dayjs = require('dayjs');
 
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: ''
+      movie: '',
+      trailerKey: '',
+      error: ''
     };
   }
 
@@ -17,6 +21,11 @@ class MovieDetails extends Component {
     fetchMovie(this.props.selectedId)
       .then(data => cleanAPIData(data))
       .then(cleanedMovie => this.setState({ movie: cleanedMovie }))
+      .catch(err => this.setState({ error: err.message }));
+
+    fetchMovieTrailer(this.props.selectedId)
+      .then(data => checkForTrailer(data))
+      .then(key => this.setState({ trailerKey: key }))
       .catch(err => this.setState({ error: err.message }));
   }
 
@@ -29,7 +38,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movie } = this.state;
+    const { movie, trailerKey, error } = this.state;
     const {
       id,
       title,
@@ -45,7 +54,10 @@ class MovieDetails extends Component {
 
     return (
       <>
-        {movie ? (
+        {!!error.length && (
+          <Errors error={'Sorry, no information available for this movie'} />
+        )}
+        {!error.length && movie ? (
           <div className='movie-details' id={id}>
             <img src={backdropPath} alt={`${title} poster`} />
             <div className='text-box'>
@@ -61,12 +73,15 @@ class MovieDetails extends Component {
                 </section>
                 <section className='right-content'>
                   <h3>Runtime:</h3>
-                  <p>{runtime} minutes</p>
+                  <p>{runtime}</p>
                   <h3>Genre:</h3>
                   <p>{formattedGenres}</p>
                   <h3>Release Date:</h3>
                   <p>{dayjs(releaseDate).format('MMMM D, YYYY')}</p>
                 </section>
+              </section>
+              <section className='youtube-trailer'>
+                <MovieTrailer trailerKey={trailerKey} title={title} />
               </section>
             </div>
           </div>
@@ -79,3 +94,7 @@ class MovieDetails extends Component {
 }
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  selectedId: PropTypes.number
+};

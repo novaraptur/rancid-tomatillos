@@ -10,3 +10,8 @@ export async function fetchMovie(id) {
   const response = await fetch(`${baseURL}movies/${id}`);
   return checkForErrors(response);
 }
+
+export async function fetchMovieTrailer(id) {
+  const response = await fetch(`${baseURL}movies/${id}/videos`);
+  return checkForErrors(response);
+}

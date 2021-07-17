@@ -4,6 +4,8 @@ import FeatMovie from '../FeatMovie/FeatMovie';
 import './Movies.css';
 import { NavLink } from 'react-router-dom';
 import { Element } from 'react-scroll';
+import PropTypes from 'prop-types';
+
 class Movies extends Component {
   getMovieCards = () => {
     const { movies } = this.props;
@@ -36,3 +38,7 @@ class Movies extends Component {
 }
 
 export default Movies;
+
+Movies.propTypes = {
+  movies: PropTypes.array
+};

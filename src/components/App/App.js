@@ -27,13 +27,15 @@ class App extends Component {
     return (
       <main>
         <ScrollToTop />
-        <Header navigate={this.navigate} />
+        <Header />
         <Switch>
           <Route
             exact
             path='/movies/:movieId'
             render={({ match }) => {
-              return <MovieDetails selectedId={match.params.movieId} />;
+              return (
+                <MovieDetails selectedId={parseInt(match.params.movieId)} />
+              );
             }}
           />
           <Route
@@ -46,7 +48,9 @@ class App extends Component {
               return (
                 <>
                   {!!error.length && <Errors error={error} />}
-                  {loading && <h1 className='error-message'>Movies loading...</h1>}
+                  {loading && (
+                    <h1 className='error-message'>Movies loading...</h1>
+                  )}
                   {loaded && <Movies movies={movies} />}
                 </>
               );

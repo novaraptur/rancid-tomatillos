@@ -72,6 +72,16 @@
   padding: 2em;
 }
 
+.youtube-trailer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  position: relative;
+  padding-bottom: 33%;
+  margin-bottom: 2em;
+}
+
 @media only screen and (max-width: 600px) {
   .content-container {
     flex-direction: column;
@@ -90,5 +100,15 @@
     width: 80%;
     padding: 2em;
     padding-top: 0;
+  }
+
+  .youtube-trailer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 60%;
+    margin-bottom: 2em;
   }
 }

@@ -32,9 +32,8 @@ export default MovieCard;
 
 MovieCard.propTypes = {
   id: PropTypes.number,
-  poster: PropTypes.string,
-  backdrop: PropTypes.string,
-  title: PropTypes.string,
-  rating: PropTypes.number,
-  releaseDate: PropTypes.string
+  average_rating: PropTypes.number,
+  poster_path: PropTypes.string,
+  release_date: PropTypes.string,
+  title: PropTypes.string
 };

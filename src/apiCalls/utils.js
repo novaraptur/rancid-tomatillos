@@ -23,3 +23,11 @@ export function checkForErrors(response) {
     return response.json();
   }
 }
+
+export function checkForTrailer(data) {
+  if (!data.videos.length) {
+    throw new Error('Video not found');
+  } else {
+    return data.videos[0].key;
+  }
+}
