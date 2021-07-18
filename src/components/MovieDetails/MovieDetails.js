@@ -1,4 +1,4 @@
-import { fetchMovie, fetchMovieTrailer } from '../../apiCalls/apiCalls';
+import { fetchMovieData } from '../../apiCalls/apiCalls';
 import { cleanAPIData, checkForTrailer } from '../../apiCalls/utils';
 import PropTypes from 'prop-types';
 import Errors from '../Errors/Errors';
@@ -18,12 +18,13 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    fetchMovie(this.props.selectedId)
+    const { selectedId } = this.props;
+    fetchMovieData(`movies/${selectedId}`)
       .then(data => cleanAPIData(data))
       .then(cleanedMovie => this.setState({ movie: cleanedMovie }))
       .catch(err => this.setState({ error: err.message }));
 
-    fetchMovieTrailer(this.props.selectedId)
+    fetchMovieData(`movies/${selectedId}/videos`)
       .then(data => checkForTrailer(data))
       .then(key => this.setState({ trailerKey: key }))
       .catch(err => this.setState({ error: err.message }));

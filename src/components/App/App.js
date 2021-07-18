@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchMovies } from '../../apiCalls/apiCalls';
+import { fetchMovieData } from '../../apiCalls/apiCalls';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchMovies('movies')
+    fetchMovieData('movies')
       .then(data => this.setState({ movies: data.movies }))
       .catch(err => this.setState({ error: err.message }));
   }
