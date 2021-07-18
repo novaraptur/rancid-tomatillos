@@ -1,5 +1,5 @@
 import { fetchMovieData } from '../../apiCalls/apiCalls';
-import { cleanAPIData, checkForTrailer } from '../../apiCalls/utils';
+import { cleanSingleMovieData, checkForTrailer } from '../../apiCalls/utils';
 import PropTypes from 'prop-types';
 import Errors from '../Errors/Errors';
 import React, { Component } from 'react';
@@ -20,7 +20,7 @@ class MovieDetails extends Component {
   componentDidMount() {
     const { selectedId } = this.props;
     fetchMovieData(`movies/${selectedId}`)
-      .then(data => cleanAPIData(data))
+      .then(data => cleanSingleMovieData(data))
       .then(cleanedMovie => this.setState({ movie: cleanedMovie }))
       .catch(err => this.setState({ error: err.message }));
 

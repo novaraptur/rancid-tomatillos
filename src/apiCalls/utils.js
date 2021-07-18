@@ -1,4 +1,4 @@
-export function cleanAPIData(movie) {
+export function cleanSingleMovieData(movie) {
   return {
     averageRating: movie.movie.average_rating,
     backdropPath: movie.movie.backdrop_path,
@@ -10,6 +10,10 @@ export function cleanAPIData(movie) {
     runtime: movie.movie.runtime,
     title: movie.movie.title
   };
+}
+
+export function cleanAllMoviesData(movies) {
+  return movies.movies.filter(movie => movie.title !== 'Maratón After');
 }
 
 export function checkForErrors(response) {

@@ -8,6 +8,7 @@ import ScrollToTop from '../ScrollToTop';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Errors from '../Errors/Errors';
 import './App.css';
+import { cleanAllMoviesData } from '../../apiCalls/utils';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,8 @@ class App extends Component {
 
   componentDidMount() {
     fetchMovieData('movies')
-      .then(data => this.setState({ movies: data.movies }))
+      .then(data => cleanAllMoviesData(data))
+      .then(filteredMovies => this.setState({ movies: filteredMovies }))
       .catch(err => this.setState({ error: err.message }));
   }
 
