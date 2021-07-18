@@ -1,4 +1,4 @@
-export function cleanAPIData(movie) {
+export function cleanSingleMovieData(movie) {
   return {
     averageRating: movie.movie.average_rating,
     backdropPath: movie.movie.backdrop_path,
@@ -12,6 +12,10 @@ export function cleanAPIData(movie) {
   };
 }
 
+export function cleanAllMoviesData(movies) {
+  return movies.movies.filter(movie => movie.title !== 'Maratón After');
+}
+
 export function checkForErrors(response) {
   if (response.status === 404) {
     throw new Error("Sorry, we can't find the page you are looking for.");
@@ -21,5 +25,13 @@ export function checkForErrors(response) {
     throw new Error('Something went wrong...');
   } else {
     return response.json();
+  }
+}
+
+export function checkForTrailer(data) {
+  if (!data.videos.length) {
+    throw new Error('Video not found');
+  } else {
+    return data.videos[0].key;
   }
 }

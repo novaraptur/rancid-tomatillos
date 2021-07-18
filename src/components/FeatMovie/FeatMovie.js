@@ -1,6 +1,7 @@
 import React from 'react';
 import './FeatMovie.css';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const FeatMovie = ({ movies }) => {
   const movie = movies[Math.floor(Math.random() * movies.length)];
@@ -24,3 +25,7 @@ const FeatMovie = ({ movies }) => {
 };
 
 export default FeatMovie;
+
+FeatMovie.propTypes = {
+  movies: PropTypes.array.isRequired
+};

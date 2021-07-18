@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchMovies } from '../../apiCalls/apiCalls';
+import { fetchMovieData } from '../../apiCalls/apiCalls';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
@@ -8,6 +8,7 @@ import ScrollToTop from '../ScrollToTop';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Errors from '../Errors/Errors';
 import './App.css';
+import { cleanAllMoviesData } from '../../apiCalls/utils';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,8 +19,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchMovies('movies')
-      .then(data => this.setState({ movies: data.movies }))
+    fetchMovieData('movies')
+      .then(data => cleanAllMoviesData(data))
+      .then(filteredMovies => this.setState({ movies: filteredMovies }))
       .catch(err => this.setState({ error: err.message }));
   }
 
@@ -27,13 +29,15 @@ class App extends Component {
     return (
       <main>
         <ScrollToTop />
-        <Header navigate={this.navigate} />
+        <Header />
         <Switch>
           <Route
             exact
             path='/movies/:movieId'
             render={({ match }) => {
-              return <MovieDetails selectedId={match.params.movieId} />;
+              return (
+                <MovieDetails selectedId={parseInt(match.params.movieId)} />
+              );
             }}
           />
           <Route
@@ -46,7 +50,9 @@ class App extends Component {
               return (
                 <>
                   {!!error.length && <Errors error={error} />}
-                  {loading && <h1 className='error-message'>Movies loading...</h1>}
+                  {loading && (
+                    <h1 className='error-message'>Movies loading...</h1>
+                  )}
                   {loaded && <Movies movies={movies} />}
                 </>
               );
