@@ -27,5 +27,5 @@ const FeatMovie = ({ movies }) => {
 export default FeatMovie;
 
 FeatMovie.propTypes = {
-  movies: PropTypes.array
+  movies: PropTypes.array.isRequired
 };

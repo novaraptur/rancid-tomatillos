@@ -97,5 +97,5 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  selectedId: PropTypes.number
+  selectedId: PropTypes.number.isRequired
 };
