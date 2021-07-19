@@ -43,5 +43,7 @@ The project consisted of five iterations, with each one both expanding upon and 
 ## Project Images
 <img width="383" alt="Movie details view for Money Plane" src="https://user-images.githubusercontent.com/79113236/126084542-645e8cc4-2d80-4471-aa71-eff1abb08d00.png">
 <img width="1552" alt="featured movie view on rancid tomatillos" src="https://user-images.githubusercontent.com/79113236/126084519-e0259fc3-8a91-424b-a594-9a0fc452f555.png">
+
 ![desktop walkthough of app showing homepage and movie details](https://user-images.githubusercontent.com/79113236/126084493-866f3b1b-aaed-4e0e-a20a-637f1190788e.gif)
+
 ![mobile walkthrough of application showing home view and movie details view](https://user-images.githubusercontent.com/79113236/126084460-a0908092-fc7a-450e-93e9-dd89d3bc4732.gif)
