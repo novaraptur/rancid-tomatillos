@@ -1,12 +1,14 @@
 # Rancid Tomatillos
 
-##[View The Deployed Site Here](https://lit-falls-58194.herokuapp.com/)
+## [View The Deployed Site Here](https://lit-falls-58194.herokuapp.com/)
 
-##Overview
+## Overview
 
-Rancid Tomatillos is a Mod 3 Front-End Turing project, with the goal of creating a movie database in React. The site displays a series of cards, each corresponding to a movie in our database, and allows the user to click on a card to view a more specific detail page with data such as its title, rating, description, release date, and trailer. React's conditional component rendering, as well as Router, allow us to specify a URL path for each movie, making navigation of the site much smoother and easier.
+<img width="463" alt="Homepage in small tablet size" src="https://user-images.githubusercontent.com/79113236/126084567-e2d39387-a2a6-4293-9ebb-8326f12a6877.png">
 
-The project consisted of several iterations, with each one both expanding on and refactoring the last, and gaining complexity; for instance, the first iteration was just to display all of the movies as cards on the page, drawing from a hardcoded data file, while the third was to get the movie data from an API call rather than a hardcoded local file. The overall goals were to:
+Rancid Tomatillos is movie database application created with React during Mod 3 of the FE program at the Turing School of Software & Design. On visiting, the site displays a featured movie and a series of movie cards, which users can click on to view more details (such as title, rating, description, release date, and trailer). The application uses React's conditional component rendering, as well as Router, to allow us to specify a URL path for each movie, making navigation of the site much smoother and easier.
+
+The project consisted of five iterations, with each one both expanding upon and refactoring the last. For instance, the first iteration was just to display all of the movies as cards on the page, drawing from a hardcoded data file, while the third was to fetch the movie data from an API. The overall goals were to:
 
 1. Gain fundamental knowledge of React and components
 2. Learn how to test React and asynchronous JS
@@ -34,11 +36,11 @@ The project consisted of several iterations, with each one both expanding on and
  - React Router
  - Cypress
  - DayJS
+ - React-Scroll
  - CSS
  - Heroku
 
 ## Project Images
-<img width="463" alt="Homepage in small tablet size" src="https://user-images.githubusercontent.com/79113236/126084567-e2d39387-a2a6-4293-9ebb-8326f12a6877.png">
 <img width="383" alt="Movie details view for Money Plane" src="https://user-images.githubusercontent.com/79113236/126084542-645e8cc4-2d80-4471-aa71-eff1abb08d00.png">
 <img width="1552" alt="featured movie view on rancid tomatillos" src="https://user-images.githubusercontent.com/79113236/126084519-e0259fc3-8a91-424b-a594-9a0fc452f555.png">
 ![desktop walkthough of app showing homepage and movie details](https://user-images.githubusercontent.com/79113236/126084493-866f3b1b-aaed-4e0e-a20a-637f1190788e.gif)
