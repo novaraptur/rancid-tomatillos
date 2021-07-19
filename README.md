@@ -24,6 +24,12 @@ The project consisted of five iterations, with each one both expanding upon and 
 
 *Dean:* I also wanted to prioritize getting comfortable using React, as it was a new technology for both of us, to gain a better understanding of Router to be able to build more easily-navigated and modern apps, and really solidify my grasp on API calls. Throughout working on this app, my priority shifted a little bit to get some time building Cypress tests, as that was a bit of a weak point of understanding for me, and I was able to feel more confident after some time reading documentation and writing out various user flows. I'm also really glad we were able to get the site deployed to Heroku for our 'Choose Your Own' final iteration, as that's a valuable skill I'm sure we'll use more as we continue building more complex apps with larger back-end structures.
 
+## Contributors
+
+[Claire](https://github.com/clairefields15)
+
+[Dean](https://github.com/novaraptur)
+
 ## Future Extensions
 
  - [X] Deploy the site to Heroku for a live, viewable app
