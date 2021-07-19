@@ -74,7 +74,7 @@ class MovieDetails extends Component {
                 </section>
                 <section className='right-content'>
                   <h3>Runtime:</h3>
-                  <p>{runtime}</p>
+                  <p>{runtime} minutes</p>
                   <h3>Genre:</h3>
                   <p>{formattedGenres}</p>
                   <h3>Release Date:</h3>
