@@ -8,11 +8,11 @@ header {
   left: 0;
   width: 100%;
   z-index: 1;
-  box-shadow: 0px 5px 7px black;
+  box-shadow: 0px 5px 7px rgb(0, 0, 0);
 }
 
 .logo h1 {
-  color: #add481;
+  color: rgb(173, 212, 129);
 }
 
 .logo {
