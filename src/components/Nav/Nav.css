@@ -7,9 +7,9 @@ nav {
 
 .nav-button {
   background-color: rgb(34, 34, 34);
-  border: 2px solid #ff91ec;
+  border: 2px solid rgb(255, 145, 236);
   border-radius: 5px;
-  color: #ff91ec;
+  color: rgb(255, 145, 236);
   min-width: 65px;
   display: flex;
   text-align: center;
@@ -22,8 +22,8 @@ nav {
 }
 
 .nav-button:hover {
-  background-color: #ff91ec;
-  color: #ffffff;
+  background-color: rgb(255, 145, 236);
+  color: rgb(255, 255, 255);
 }
 
 @media only screen and (max-width: 600px) {

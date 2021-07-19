@@ -43,10 +43,8 @@ describe('Fetch errors', () => {
 
   it('should display an error for an invalid URL', () => {
     cy.visit('http://localhost:3000/movies/123094810234')
-    .get('.error-message')
-    .should(
-      'have.text',
-      'Page not found, do you want to go home?'
+    .contains(
+      'Sorry, no information available for this movie'
     )
     .get('.nav-button')
     .contains('Home')
